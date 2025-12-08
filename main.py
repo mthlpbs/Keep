@@ -11,10 +11,13 @@ intp = int()
 sources = ["youtube"]
 quality = ["144p", "240p", "360p", "480p", "720p", "1080p", "1440p", "2160p"]
 
-def handler(url:str=None, quality:str=None, subtitle:list[str]=None, output:str=None) -> None:
+
+def handler(
+    url: str = None, quality: str = None, subtitle: list[str] = None, output: str = None
+) -> None:
     """
     Handles user input and calls the appropriate downloader based on the input.
-    
+
     Args:
         url (str, optional): The video URL. Defaults to None.
         quality (str, optional): The desired video quality. Defaults to None.
@@ -73,7 +76,7 @@ def main():
             type=str,
             metavar="site",
             help="Specify the video site name (e.g., youtube)\n Supported sources: youtube",
-            choices= sources,
+            choices=sources,
         )
         parser.add_argument(
             "--quality",
@@ -102,7 +105,9 @@ def main():
         if args.quality:
             args.quality = args.quality.replace("p", "")
         if args.subtitle:
-            args.subtitle = [code.lower() for code in args.subtitle.replace(" ","").split(",")]
+            args.subtitle = [
+                code.lower() for code in args.subtitle.replace(" ", "").split(",")
+            ]
         if args.output and os.path.isdir(args.output) is False:
             console = Console()
             console.print(f"\n[red]{args.output} is not a valid directory.[/red]\n")
@@ -111,21 +116,33 @@ def main():
             site = utils.recognizer.url(args.url)
             if site in sources:
                 intp = sources.index(site) + 1
-                handler(url=args.url, quality=args.quality, subtitle=args.subtitle, output=args.output)
+                handler(
+                    url=args.url,
+                    quality=args.quality,
+                    subtitle=args.subtitle,
+                    output=args.output,
+                )
             else:
                 console = Console()
                 console.print(
                     f"\n[red]The provided URL is either invalid or from an unsupported source. Please provide a valid {site} URL.[/red]\n"
                 )
                 sys.exit(0)
-            
+
         elif args.platform in sources:
             intp = sources.index(args.platform) + 1
-            handler(url=args.url, quality=args.quality, subtitle=args.subtitle, output=args.output)
+            handler(
+                url=args.url,
+                quality=args.quality,
+                subtitle=args.subtitle,
+                output=args.output,
+            )
         else:
             console = Console()
             console.print(
-                Align.center("[bold medium_purple]Keep ♾️ Videos 🌝[/bold medium_purple]")
+                Align.center(
+                    "[bold medium_purple]Keep ♾️ Videos 🌝[/bold medium_purple]"
+                )
             )
             console.print(
                 Align.center(
@@ -145,7 +162,9 @@ def main():
         console.print("\n[red]Exiting...[/red]\n")
         sys.exit(0)
     except ModuleNotFoundError as e:
-        sys.exit(f"\n❌ Rich module not found! Please install the required dependencies.\n")
+        sys.exit(
+            f"\n❌ Rich module not found! Please install the required dependencies.\n"
+        )
 
 
 if __name__ == "__main__":

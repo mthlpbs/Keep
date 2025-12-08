@@ -1,5 +1,6 @@
 import urllib3
 
+
 class LinkError(Exception):
     """
     Exception raised for invalid or unsupported YouTube URLs.
@@ -42,9 +43,10 @@ class test:
         except urllib3.exceptions.HTTPError:
             return False
 
+
 class recognizer:
     @staticmethod
-    def url(link:str) -> str:
+    def url(link: str) -> str:
         """
         Recognizes the video site name from the provided URL.
 
@@ -55,6 +57,7 @@ class recognizer:
             str: The name of the video site if recognized, otherwise 'none'.
         """
         import re
+
         regex = {
             "youtube": r"^(?:https?:\/\/)?(?:www\.)?(?:youtube\.com\/watch\?v=|youtu\.be\/)([\w-]{11})(?:&[^#\s]*)?$",
         }
@@ -62,6 +65,7 @@ class recognizer:
             if re.match(pattern, link):
                 return site
         return "none"
+
 
 def main(): ...
 

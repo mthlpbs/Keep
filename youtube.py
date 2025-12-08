@@ -82,7 +82,9 @@ class downloader:
                 )
                 sys.exit(1)
             except ModuleNotFoundError:
-                sys.exit("\n❌ Rich module not found! Please install the required dependencies.\n")
+                sys.exit(
+                    "\n❌ Rich module not found! Please install the required dependencies.\n"
+                )
         self.url = url
         self.cookies = cookie
         if utils.test.check_internet_conn() is True:
@@ -405,7 +407,9 @@ class downloader:
                     "\n[bold red]❌ No subtitles found for this video![/bold red]\n"
                 )
                 return
-            elif all(pycountry.languages.get(alpha_2=lang.upper()) for lang in subtitle):
+            elif all(
+                pycountry.languages.get(alpha_2=lang.upper()) for lang in subtitle
+            ):
                 self.ydl_opts["writesubtitles"] = True
                 self.ydl_opts["writeautomaticsub"] = True
                 self.ydl_opts["subtitlesformat"] = "srt"
@@ -545,7 +549,8 @@ class downloader:
         Downloads the video with a progress bar.
         """
         from rich.progress import Progress, BarColumn
-        title = self._info['title'][:50]
+
+        title = self._info["title"][:50]
         try:
             console = Console()
             with Progress(

@@ -137,8 +137,12 @@ Thumbs.db
 ehthumbs.db
 Desktop.ini
 
-# Cookies (sensitive data)
-cookies/
+
 
 # Test outputs
 test/output/
+
+# PyInstaller
+*.spec
+build/
+dist/

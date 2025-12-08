@@ -1,0 +1,5 @@
+pycountry==24.6.1
+pytest==8.4.2
+rich==14.2.0
+urllib3==2.6.0
+yt_dlp==2025.11.12

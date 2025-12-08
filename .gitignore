@@ -142,6 +142,9 @@ Desktop.ini
 # Test outputs
 test/output/
 
+# Cookies
+cookies/
+
 # PyInstaller
 *.spec
 build/

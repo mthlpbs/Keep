@@ -1,5 +1,5 @@
 # Keep - Efficient Video Downloader
-
+![coding time](https://hackatime-badge.hackclub.com/U07EAVBK85Q/keep)<br>
 A simple and efficient video downloader that allows users to download videos from YouTube with rich content including embedded thumbnails, subtitles, and metadata.
 
 ## Features
@@ -130,3 +130,4 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 - [rich](https://rich.readthedocs.io/en/stable/)
 - [FFmpeg](https://www.ffmpeg.org/)
 - [Google Python Style Guide](https://google.github.io/styleguide/pyguide.html)
+

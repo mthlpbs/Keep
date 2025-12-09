@@ -1,6 +1,13 @@
 # Keep - Efficient Video Downloader
-![coding time](https://hackatime-badge.hackclub.com/U07EAVBK85Q/keep)<br>
+![coding time](https://hackatime-badge.hackclub.com/U07EAVBK85Q/keep)
+![license](https://img.shields.io/badge/License-MIT-green.svg)
+![python](https://img.shields.io/badge/Python-3.13%2B-blue.svg)
+![ffmpeg](https://img.shields.io/badge/FFmpeg-optional-red.svg)
+![yt-dlp](https://img.shields.io/badge/yt--dlp-required-yellow.svg) <br>
+
 A simple and efficient video downloader that allows users to download videos from YouTube with rich content including embedded thumbnails, subtitles, and metadata.
+
+*Note: This is the final project for CS50P aka Introduction to Programming with Python by Harvard University.*
 
 ## Features
 

@@ -42,6 +42,7 @@ class downloader:
             output (str, optional): Output directory path for downloaded videos. Defaults to None.
         """
         self.ydl_opts = {
+            "remote_components": ["ejs:github"],
             "merge_output_format": "mkv",
             "quiet": True,
             "no_warnings": True,
@@ -50,7 +51,7 @@ class downloader:
             "embedinfojson": True,
             "embedmetadata": True,
             "embedchapters": True,
-            "xattr": True,
+            "xattrs": True,
             "nodownloadarchive": True,
         }
         if which("ffmpeg") is not None:
@@ -456,7 +457,7 @@ class downloader:
         qualities = []
         for format in self._info["formats"]:
             try:
-                if format["video_ext"] and int(format["height"]) > 180:
+                if format["video_ext"] and format["height"] is not None and int(format["height"]) > 180:
                     qualities.append(int(format["height"]))
             except KeyError:
                 continue
@@ -482,7 +483,7 @@ class downloader:
                         - 1
                     ]
                     self.ydl_opts["format"] = (
-                        f"bestvideo[height={self._quality}][protocol^=http]+bestaudio[protocol^=http]/bestvideo[height<={self._quality}]+bestaudio/best[height={self._quality}]/best"
+                        f"bestvideo[height={self._quality}]+bestaudio/bestvideo[height<={self._quality}]+bestaudio/best[height={self._quality}]/best"
                     )
                     console.clear()
                     break
